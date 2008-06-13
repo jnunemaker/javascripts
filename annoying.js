@@ -1,5 +1,5 @@
 /**
- * For fixing the IE6 div's can't show over selects issue. 
+ * For fixing the IE6 div's can't show over selects issue. Requires Prototype 1.6+
  * 
  * Call Annoying.fix(id or element) to put an iframe behind the element 
  * that covers selects and Annoying.unfix(id or element) to hide that 
