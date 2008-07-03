@@ -7,6 +7,8 @@
  * - On blur, adds the default text and css class back if the user did not fill in the form element.
  * - Adds a class to the form element that is removed when user puts information in. This allows 
  *   styling of the label with a lighter color than when the user has "real" text in the form element.
+ *
+ * NOTE: It only works with input[type=text] and textarea fields. All other elements are ignored.
  * 
  * Usage: 
  * 		$('input').labelize(); // uses blank as the class so you could use style input.blank {color:#ccc;}
@@ -21,7 +23,9 @@
 	 */
 	$.fn.labelize = function(options) {	
 		return this.each(function() {
-			new $.labelize(this, options);
+			if ((this.tagName.toLowerCase() == 'input' && $(this).attr('type') == 'text') || this.tagName.toLowerCase() == 'textarea') {
+				new $.labelize(this, options);
+			}
 		});
 	};
 	
