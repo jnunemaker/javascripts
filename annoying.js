@@ -54,10 +54,12 @@ var Annoying = {
 		if (!element) { return; }
 		var iframe = Annoying.iFrameFor(element);
 		if (element && iframe) {
-			iframe.clonePosition(element);
-			iframe.setStyle({zIndex: 1});
-			element.setStyle({zIndex: 2});
-			iframe.show();
+			try {
+				iframe.clonePosition(element);
+				iframe.setStyle({zIndex: 1});
+				element.setStyle({zIndex: 2});
+				iframe.show();
+			} catch(e) {}
 		}
 	}
 }
