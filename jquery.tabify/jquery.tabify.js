@@ -1,24 +1,26 @@
+// Requires jQuery 1.3 as it uses live events
 (function($) {
   $.fn.tabify = function() {
     var elements = this.each(function() {
       var bar = $(this).addClass('tab_bar');
       
-      var tabs = bar.find('a').each(function() {
+      var tabs = bar.find('li a:first').each(function() {
         initTab(this);
       }).live('click', function() {
-        var bar = $(this).parents('.tab_bar');
+        var tab = $(this);
+        var bar = tab.parents('.tab_bar');
+        
         bar.find('li.active').removeClass('active');
-        $(this).parent('li').addClass('active');
+        tab.parent('li').addClass('active');
         
-        bar.find('a').each(function() {
-          panelFor(this).hide();
-        });
-        
+        bar.find('li a:first').each(function() { panelFor(this).hide(); });
         panelFor(this).show();
+        
         return false;
       });
       
-      $(tabs[0]).click();
+      var default_tab = $(tabs[0]);
+      default_tab.click();
     });
     
     function initTab(tab) {
