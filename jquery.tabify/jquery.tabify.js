@@ -1,4 +1,5 @@
 // Requires jQuery 1.3 as it uses live events
+// Version 0.1
 (function($) {
   $.fn.tabify = function() {
     var elements = this.each(function() {
