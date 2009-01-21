@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>jQuery SimpleTabs</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.tabify.js"></script>
+	
+	<script type="text/javascript">
+	  jQuery(function($) {
+	    var tabset = $('#tabset').tabify();
+      tabset.addTab('Added', '#added');
+      tabset.removeTab('#removed')
+      
+      var tabset2 = $('#another_tabset').tabify();
+      tabset2.selectTab('#another2');
+	  })
+	</script>
+	
+	<style type="text/css" media="screen">
+	  li.active a {color:red;}
+	</style>
+	
+</head>
+<body>
+
+<ul id="tabset">
+  <li><a href="#foo"><span>Foo</span></a></li>
+  <li><a href="#bar"><span>Bar</span></a></li>
+  <li><a href="#removed"><span>Removed</span></a></li>
+</ul>
+
+<div id="foo">
+  <p>Foo</p>
+</div>
+
+<div id="bar">
+  <p>Bar</p>
+</div>
+
+<div id="removed">
+  <p>Baz</p>
+</div>
+
+<div id="added">
+  <p>Added</p>
+</div>
+
+
+<ul id="another_tabset">
+  <li><a href="#another"><span>Another</span></a></li>
+  <li><a href="#another2"><span>Another 2</span></a></li>
+</ul>
+
+<div id="another">
+  <p>Another</p>
+</div>
+
+<div id="another2">
+  <p>Another 2</p>
+</div>
+
+</body>
+</html>
